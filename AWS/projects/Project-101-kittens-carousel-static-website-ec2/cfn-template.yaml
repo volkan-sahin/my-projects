@@ -1,0 +1,37 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: |
+ cfn-101-kitten-project  
+Resources: 
+ cfn-instance-kitten:
+  Type: AWS::EC2::Instance
+  Properties:
+    ImageId: ami-0022f774911c1d690
+    InstanceType: t2.micro
+    KeyName: firstkey
+    SecurityGroups:
+      - cfn-sec-group
+    Tags:
+      - Key: Name 
+        Value: Kittens_Carousel_Static
+    UserData:
+      #! /bin/bash
+      #update os
+      yum update -y
+      # install git and wget
+      yum install git
+      #install apache server
+      yum install -y httpd
+      
+      chmod -R 777 /var/www/html/
+      cd /var/www/html/
+      
+      # get the files from repository
+      wget https://raw.githubusercontent.com/volkan-sahin/my-projects/master/AWS/Project-101-kittens-carousel-static-website-ec2/static-web/cat0.jpg
+      wget https://raw.githubusercontent.com/volkan-sahin/my-projects/master/AWS/Project-101-kittens-carousel-static-website-ec2/static-web/cat1.jpg
+      wget https://raw.githubusercontent.com/volkan-sahin/my-projects/master/AWS/Project-101-kittens-carousel-static-website-ec2/static-web/cat2.jpg
+      wget https://raw.githubusercontent.com/volkan-sahin/my-projects/master/AWS/Project-101-kittens-carousel-static-website-ec2/static-web/cat3.png 
+      wget https://raw.githubusercontent.com/volkan-sahin/my-projects/master/AWS/Project-101-kittens-carousel-static-website-ec2/static-web/index.html 
+      # start apache server
+      systemctl start httpd
+      systemctl enable httpd
+  
