@@ -22,9 +22,9 @@ Kittens Carousel is a static website application deployed on AWS Simple Storage 
 
     - The application stack should take two parameters from the user;
 
-      - The DNS name of an existing Amazon Route 53 hosted zone e.g. `clarusway.us`
+      - The DNS name of an existing Amazon Route 53 hosted zone e.g. `volkansahin.co.uk`
 
-      - The full domain name e.g. `kittens.clarusway.us` for the web application
+      - The full domain name e.g. `kittens.volkansahin.co.uk` for the web application
 
     - The Web Application files should be served from S3 bucket which should be configured as a static website host and the content should be reachable from anywhere.
 
@@ -119,7 +119,7 @@ Kittens Carousel is a static website application deployed on AWS Simple Storage 
 
 ## Steps to Solution
   
-- Step 1: Download or clone project definition from `clarusway` repo on Github
+- Step 1: Download or clone project definition from `my-project` repo on Github
 
 - Step 2: Create project folder for local public repo on your pc
 
